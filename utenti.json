@@ -1,0 +1,15 @@
+[
+  {
+    "mail" : "cascavilla1@gmail.com",
+    "password" : "ciao",
+    "nome" : "Stefano",
+    "cognome" : "Cascavilla"
+  },
+
+  {
+    "mail" : "ciao@gmail.com",
+    "password" : "ciao",
+    "nome" : "Matteo",
+    "cognome" : "Maglia"
+  }
+]
