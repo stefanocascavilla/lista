@@ -1,0 +1,58 @@
+html
+  head
+    title Lista
+  body
+
+    script(type='text/javascript').
+
+      var liste = [], elementi = [];
+      var cont = 0;
+      var classP = 0;
+
+
+      function addList() {
+        liste.push(document.getElementById('nomeLista').value);
+
+        document.getElementById('list').innerHTML = liste[cont];
+        cont++;
+      }
+
+      function addElement() {
+         elementi.push(document.getElementById('elementoLista').value);
+
+         document.getElementById('litag').innerHTML = "";
+
+         for (let cont = 0 ; cont < elementi.length ; cont++) {
+             document.getElementById('litag').innerHTML += '<li>' + elementi[cont] + '</li>'
+           }
+       }
+
+       function deleteItem() {
+        let ele = document.getElementById('elimina').value;
+
+        elementi.splice(ele, 1);
+
+        document.getElementById('litag').innerHTML = "";
+
+        for (let cont = 0 ; cont < elementi.length ; cont++) {
+            document.getElementById('litag').innerHTML += '<li>' + elementi[cont] + '</li>'
+          }
+       }
+
+    h2 Benvenuto #{nome} #{cognome}
+
+    form(action="http://127.0.0.1:8081/send" method="POST")
+      input(type='text' placeholder='Nome lista' id='nomeLista')
+      input(type='text' placeholder='Elemento lista' id='elementoLista' name="elem")
+      input(type='button' value='Aggiungi Lista' onClick='addList()')
+      input(type='submit' value='Aggiungi Elemento' onClick='addElement()')
+
+    br
+
+    input(type='text' placeholder='Numero elemento da eliminare' id='elimina')
+
+    input(type='button' value='Elimina' onClick='deleteItem()')
+
+    h2#list
+
+    ul#litag
